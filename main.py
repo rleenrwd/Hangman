@@ -25,20 +25,29 @@ print(placeholder, "\n")
 
 game_over = False
 
+correct_letters = []
+
 while not game_over:
+    
     # Let the user guess
     user_guess = input("What letter do you think is in the word?: ").strip().lower()
-
     word_to_display = ""
+   
 
     # Replace the underscore with the correct letter if it's in the word
     for letter in word_to_guess:
         if letter == user_guess:
             word_to_display += letter
+            correct_letters.append(letter)
+        elif letter in correct_letters:
+            word_to_display += letter
         else:
            word_to_display += "_"
-
+           
+           
+    
     print(word_to_display)
+    
            
     if "_" not in word_to_display:
         print("YOU WIN!")
